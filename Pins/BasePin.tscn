@@ -8,10 +8,10 @@
 rough = true
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 15.0
+radius = 21.0
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 16.0312
+radius = 22.0
 
 [node name="BasePin" type="StaticBody2D"]
 physics_material_override = SubResource( 3 )
@@ -40,6 +40,7 @@ valign = 1
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
+pitch_scale = 0.85
 
 [connection signal="body_entered" from="PointArea" to="." method="_on_PointArea_body_entered"]
 [connection signal="body_exited" from="PointArea" to="." method="_on_PointArea_body_exited"]

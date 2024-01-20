@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Pins/BasePin.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GameBoard.gd" type="Script" id=2]
@@ -8,13 +8,20 @@
 [ext_resource path="res://Pins/5Pin.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Pins/10Pin.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Pins/20Pin.tscn" type="PackedScene" id=8]
+[ext_resource path="res://GamePieces/LongBoyRight.tscn" type="PackedScene" id=9]
+[ext_resource path="res://GamePieces/TriangleRotatedPiece.tscn" type="PackedScene" id=10]
+[ext_resource path="res://GamePieces/CirclePiece.tscn" type="PackedScene" id=11]
+[ext_resource path="res://GamePieces/DiamondPiece.tscn" type="PackedScene" id=12]
+[ext_resource path="res://GamePieces/TeethPiece.tscn" type="PackedScene" id=13]
+[ext_resource path="res://GamePieces/OrigamiPiece.tscn" type="PackedScene" id=14]
+[ext_resource path="res://GamePieces/LongBoyLeft.tscn" type="PackedScene" id=15]
 
 [sub_resource type="PhysicsMaterial" id=2]
 friction = 0.56
 bounce = 0.2
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 516, 54 )
+extents = Vector2( 516, 35.5 )
 
 [node name="GameBoard" type="Node2D"]
 script = ExtResource( 2 )
@@ -196,7 +203,7 @@ polygon = PoolVector2Array( -30, 0, 30, 0, 30, 884, -25, 884 )
 [node name="PieceSpawner" type="Node2D" parent="."]
 position = Vector2( 0, 1 )
 script = ExtResource( 3 )
-availible_pieces = [ ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ) ]
+availible_pieces = [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 14 ), ExtResource( 4 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 10 ), ExtResource( 9 ) ]
 
 [node name="Position2D" type="Position2D" parent="PieceSpawner"]
 position = Vector2( 166, 65 )
