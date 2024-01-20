@@ -19,6 +19,7 @@ func _on_PointArea_body_entered(body):
 	if body.has_method("_on_pin_touched"):
 		body._on_pin_touched(self)
 		modulate = touched_color
+		$AudioStreamPlayer2D.play()
 
 func _on_PointArea_body_exited(body):
 	if body.has_method("_on_pin_lost"):
