@@ -1,7 +1,7 @@
 class_name Player
 extends Node2D
 
-export var color = Color .red
+export var color = Color.orangered
 var points = 0
 
 
@@ -20,6 +20,8 @@ func lose_points(amount):
 
 func set_nb(nb):
 	$Title.text = $Title.text % nb
+	if nb > 1:
+		color = Color.aquamarine
 
 func _on_turn_start():
 	$TurnLabel.show()

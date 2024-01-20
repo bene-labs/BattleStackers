@@ -1,15 +1,24 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Pins/BasePin.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GameBoard.gd" type="Script" id=2]
 [ext_resource path="res://PieceSpawner.gd" type="Script" id=3]
 [ext_resource path="res://GamePieces/SquarePiece.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Elements/Final elements/Wood Background.png" type="Texture" id=5]
+
+[sub_resource type="PhysicsMaterial" id=2]
+friction = 0.56
+bounce = 0.2
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 516, 54 )
+extents = Vector2( 516, 35.5 )
 
 [node name="GameBoard" type="Node2D"]
 script = ExtResource( 2 )
+
+[node name="WoodBackground" type="Sprite" parent="."]
+position = Vector2( 450, 380 )
+texture = ExtResource( 5 )
 
 [node name="Pins" type="Node2D" parent="."]
 
@@ -43,11 +52,33 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="Polygon2D" type="Polygon2D" parent="Line"]
+visible = false
 color = Color( 0, 0, 0, 0.866667 )
 polygon = PoolVector2Array( 0, 100, 1021, 100, 1022, 135, 0, 135 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Line"]
-polygon = PoolVector2Array( 0, 100, 1021, 100, 1022, 135, 0, 135 )
+position = Vector2( 3, -12 )
+polygon = PoolVector2Array( 1, 116, 898, 114, 898, 136, 0, 135 )
+
+[node name="Wall" type="StaticBody2D" parent="."]
+position = Vector2( -31, 1 )
+physics_material_override = SubResource( 2 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Wall"]
+polygon = PoolVector2Array( -30, 0, 30, 0, 30, 884, -25, 884 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall"]
+polygon = PoolVector2Array( -30, 0, 30, 0, 30, 884, -25, 884 )
+
+[node name="Wall2" type="StaticBody2D" parent="."]
+position = Vector2( 934, -2 )
+physics_material_override = SubResource( 2 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Wall2"]
+polygon = PoolVector2Array( -30, 0, 30, 0, 30, 884, -25, 884 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall2"]
+polygon = PoolVector2Array( -30, 0, 30, 0, 30, 884, -25, 884 )
 
 [node name="PieceSpawner" type="Node2D" parent="."]
 position = Vector2( 0, 1 )
@@ -65,31 +96,13 @@ position = Vector2( 757, 72 )
 
 [node name="ActivePieces" type="Node2D" parent="PieceSpawner"]
 
-[node name="Wall" type="StaticBody2D" parent="PieceSpawner"]
-position = Vector2( -24, 0 )
-
-[node name="Polygon2D" type="Polygon2D" parent="PieceSpawner/Wall"]
-polygon = PoolVector2Array( -30, 0, 30, 0, 30, 620, -30, 620 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PieceSpawner/Wall"]
-polygon = PoolVector2Array( -30, 0, 30, 0, 30, 620, -30, 620 )
-
-[node name="Wall2" type="StaticBody2D" parent="PieceSpawner"]
-position = Vector2( 1046, 0 )
-
-[node name="Polygon2D" type="Polygon2D" parent="PieceSpawner/Wall2"]
-polygon = PoolVector2Array( -30, 0, 30, 0, 30, 620, -30, 620 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="PieceSpawner/Wall2"]
-polygon = PoolVector2Array( -30, 0, 30, 0, 30, 620, -30, 620 )
-
 [node name="DeleteArea" type="Area2D" parent="."]
 position = Vector2( 1024, 0 )
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeleteArea"]
-position = Vector2( -518, 660 )
+position = Vector2( -562, 847.5 )
 shape = SubResource( 1 )
 
 [connection signal="body_entered" from="Line" to="." method="_on_Line_body_entered"]

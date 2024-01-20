@@ -48,6 +48,6 @@ func spawn_pieces(player):
 		new_piece.connect("picked_up", self, "_on_piece_picked_up")
 		new_piece.connect("dropped", self, "_on_piece_dropped")
 		new_piece.global_position = slot.global_position
-		new_piece.self_modulate = player.color
+		new_piece.modulate = player.color
 		active_pieces.push_back(new_piece)
 		$ActivePieces.add_child(new_piece)
