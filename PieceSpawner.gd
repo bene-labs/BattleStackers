@@ -40,6 +40,8 @@ func spawn_pieces(player):
 	is_active_piece_dropped = false
 	piece_pool = availible_pieces.duplicate()
 	for slot in slots:
+		if not slot is Position2D:
+			continue 
 		if piece_pool.size() == 0:
 			break
 		var chosen_piece = piece_pool.pop_at(randi() % piece_pool.size())
