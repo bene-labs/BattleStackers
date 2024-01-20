@@ -11,14 +11,12 @@ script = ExtResource( 1 )
 polygon = PoolVector2Array( -37.5, -25, -18.75, 0, 0, -25, 37.5, -25, 37.5, 25, 18.75, 0, 0, 25, -37.5, 25 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
-polygon = PoolVector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
+polygon = PoolVector2Array( -37.5, -25, -18.75, 0, 0, -25, 37.5, -25, 37.5, 25, 18.75, 0, 0, 25, -37.5, 25 )
 
 [node name="MouseArea" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MouseArea"]
-polygon = PoolVector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
+polygon = PoolVector2Array( -37.5, -25, -18.75, 0, 0, -25, 37.5, -25, 37.5, 25, 18.75, 0, 0, 25, -37.5, 25 )
 
 [node name="IdleTimer" type="Timer" parent="."]
 
