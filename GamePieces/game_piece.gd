@@ -12,7 +12,6 @@ export var idle_requirement = 3.0
 
 var owning_player : Player
 
-export var hover_color = Color.gray
 
 func init(player):
 	owning_player = player
@@ -39,7 +38,6 @@ func _input(event):
 	if is_follow_mouse and event.is_action_released("pickup_piece"):
 		drop()
 
-
 func drop():
 	if not is_follow_mouse:
 		return
@@ -50,12 +48,10 @@ func drop():
 
 func _on_mouse_entered():
 	is_hovered = true
-	self_modulate = hover_color
 
 
 func _on_mouse_exited():
 	is_hovered = false
-	self_modulate = Color.white
 
 
 func _on_SquarePiece_input_event(viewport, event, shape_idx):
