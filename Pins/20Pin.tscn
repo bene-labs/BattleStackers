@@ -5,7 +5,7 @@
 
 [sub_resource type="PhysicsMaterial" id=3]
 rough = true
-bounce = 0.28
+bounce = 0.51
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 21.0
@@ -13,10 +13,10 @@ radius = 21.0
 [sub_resource type="CircleShape2D" id=4]
 radius = 22.0
 
-[node name="10Pin" type="StaticBody2D"]
+[node name="20Pin" type="StaticBody2D"]
 physics_material_override = SubResource( 3 )
 script = ExtResource( 2 )
-points = 10
+points = 20
 
 [node name="Pin" type="Sprite" parent="."]
 texture = ExtResource( 1 )

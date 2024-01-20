@@ -1,17 +1,18 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Pins/BasePin.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GameBoard.gd" type="Script" id=2]
 [ext_resource path="res://PieceSpawner.gd" type="Script" id=3]
 [ext_resource path="res://GamePieces/SquarePiece.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Elements/Final elements/Wood Background.png" type="Texture" id=5]
+[ext_resource path="res://Pins/10Pin.tscn" type="PackedScene" id=7]
 
 [sub_resource type="PhysicsMaterial" id=2]
 friction = 0.56
 bounce = 0.2
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 516, 35.5 )
+extents = Vector2( 516, 54 )
 
 [node name="GameBoard" type="Node2D"]
 script = ExtResource( 2 )
@@ -20,31 +21,52 @@ script = ExtResource( 2 )
 position = Vector2( 450, 380 )
 texture = ExtResource( 5 )
 
+[node name="10Pin" parent="WoodBackground" instance=ExtResource( 7 )]
+position = Vector2( -190, 333 )
+
 [node name="Pins" type="Node2D" parent="."]
 
 [node name="BasePin3" parent="Pins" instance=ExtResource( 1 )]
-position = Vector2( 220, 247 )
+position = Vector2( 387, 268 )
 
 [node name="BasePin4" parent="Pins" instance=ExtResource( 1 )]
-position = Vector2( 297, 336 )
+position = Vector2( 387, 332 )
 
 [node name="BasePin5" parent="Pins" instance=ExtResource( 1 )]
-position = Vector2( 306, 257 )
+position = Vector2( 515, 269 )
 
 [node name="BasePin6" parent="Pins" instance=ExtResource( 1 )]
-position = Vector2( 202, 372 )
+position = Vector2( 324, 455 )
 
 [node name="BasePin7" parent="Pins" instance=ExtResource( 1 )]
-position = Vector2( 69, 279 )
+position = Vector2( 197, 460 )
+
+[node name="10Pin2" parent="Pins" instance=ExtResource( 7 )]
+position = Vector2( 132, 589 )
+
+[node name="BasePin10" parent="Pins" instance=ExtResource( 1 )]
+position = Vector2( 578, 651 )
+
+[node name="BasePin11" parent="Pins" instance=ExtResource( 1 )]
+position = Vector2( 643, 332 )
+
+[node name="BasePin9" parent="Pins" instance=ExtResource( 1 )]
+position = Vector2( 706, 395 )
+
+[node name="10Pin" parent="Pins" instance=ExtResource( 7 )]
+position = Vector2( 514, 395 )
+
+[node name="10Pin" parent="Pins/10Pin" instance=ExtResource( 7 )]
+position = Vector2( 193, 129 )
 
 [node name="BasePin" parent="Pins" instance=ExtResource( 1 )]
-position = Vector2( 66, 199 )
+position = Vector2( 68, 205 )
 
 [node name="BasePin2" parent="Pins" instance=ExtResource( 1 )]
-position = Vector2( 142, 304 )
+position = Vector2( 195, 331 )
 
 [node name="BasePin8" parent="Pins" instance=ExtResource( 1 )]
-position = Vector2( 97, 313 )
+position = Vector2( 67, 395 )
 
 [node name="Line" type="Area2D" parent="."]
 position = Vector2( -1, 37 )
