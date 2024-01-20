@@ -7,10 +7,10 @@
 rough = true
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 21.0
+radius = 15.0
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 22.0
+radius = 16.0312
 
 [node name="BasePin" type="StaticBody2D"]
 physics_material_override = SubResource( 3 )
