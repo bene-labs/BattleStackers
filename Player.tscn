@@ -6,23 +6,35 @@
 rotation = 0.00305236
 scale = Vector2( 1.5, 1.5 )
 script = ExtResource( 1 )
+points_to_win = 60
 
 [node name="Title" type="Label" parent="."]
 margin_right = 40.0
 margin_bottom = 14.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Player %d:"
 
 [node name="PointLabel" type="Label" parent="."]
 margin_left = 68.0
 margin_right = 160.0
 margin_bottom = 14.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "0 Points"
 
 [node name="TurnLabel" type="Label" parent="."]
 visible = false
-margin_left = 1.0
-margin_top = 15.0
-margin_right = 61.0
-margin_bottom = 46.0
+margin_left = 27.4248
+margin_top = 29.9164
+margin_right = 91.4248
+margin_bottom = 60.9164
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 text = "Your Turn!
 "
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+margin_left = 0.711431
+margin_top = 14.6646
+margin_right = 119.711
+margin_bottom = 28.6646
+step = 1.0
+percent_visible = false

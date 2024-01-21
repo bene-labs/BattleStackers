@@ -1,12 +1,16 @@
 class_name GamePieceSpawner
 extends Node2D
 
+signal piece_dropped
+
 export var availible_pieces = []
+
 var piece_pool
 var is_active_piece_dropped = true
 
 var active_pieces = []
 var active_player = null
+
 
 onready var slots = get_children()
 
@@ -17,7 +21,7 @@ func _ready():
 
 func are_all_pieces_idle():
 	for piece in $ActivePieces.get_children():
-		if piece.linear_velocity.length() > 0.75:
+		if piece.linear_velocity.length() >= 0.77:
 			return false
 	return true
 	
@@ -33,6 +37,7 @@ func _on_piece_dropped():
 	is_active_piece_dropped = true
 	active_pieces.clear()
 	active_player._on_turn_end()
+	emit_signal("piece_dropped")
 
 
 func spawn_pieces(player):

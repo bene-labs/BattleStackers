@@ -8,14 +8,16 @@ collision_mask = 3
 script = ExtResource( 1 )
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-polygon = PoolVector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
+polygon = PoolVector2Array( -25, 0, 0, -25, 25, 0, 25, 0 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
 polygon = PoolVector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
 
 [node name="MouseArea" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MouseArea"]
+visible = false
 polygon = PoolVector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
 
 [node name="IdleTimer" type="Timer" parent="."]

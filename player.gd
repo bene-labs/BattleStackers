@@ -2,26 +2,31 @@ class_name Player
 extends Node2D
 
 export var color = Color.orangered
+export var points_to_win = 100
 var points = 0
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	$ProgressBar.max_value = points_to_win
+	
 
 func gain_points(amount):
 	points += amount
+	$ProgressBar.value = points
 	$PointLabel.text = str(points) + " Points" 
 
 func lose_points(amount):
 	points -= amount
+	$ProgressBar.value = points
 	$PointLabel.text = str(points) + " Points" 
 
 func set_nb(nb):
 	$Title.text = $Title.text % nb
 	if nb > 1:
 		color = Color.aquamarine
+	$TurnLabel.modulate = color
+	$Title.modulate = color
 
 func _on_turn_start():
 	$TurnLabel.show()

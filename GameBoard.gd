@@ -1,12 +1,17 @@
 class_name GameBoard
 extends Node2D
 
+signal piece_dropped
+
 var active_player : Player
 onready var piece_spawner : GamePieceSpawner = $PieceSpawner
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
-	pass # Replace with function body.
+	$PieceSpawner.connect("piece_dropped", self, "on_piece_dropped")
+
+func on_piece_dropped():
+	emit_signal("piece_dropped")
 
 func pass_turn(player: Player):
 	player._on_turn_start()
