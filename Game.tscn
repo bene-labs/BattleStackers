@@ -15,8 +15,7 @@ font_data = ExtResource( 4 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 3 )
-
-[node name="GameBoard" parent="." instance=ExtResource( 2 )]
+game_boards = [ ExtResource( 2 ) ]
 
 [node name="Players" type="Node2D" parent="."]
 

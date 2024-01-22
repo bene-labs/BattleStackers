@@ -1,5 +1,7 @@
 extends Node2D
 
+export var game_boards = []
+
 var turn = 0
 var players
 
@@ -8,6 +10,12 @@ var skip_turn = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	randomize()
+	var board = game_boards[randi() % game_boards.size()].instance()
+	add_child(board)
+	move_child(board, 0)
+	
+	
 	players = $Players.get_children()
 	for i in range(players.size()):
 		players[i].set_nb(i + 1)
