@@ -21,7 +21,7 @@ func _ready():
 
 func are_all_pieces_idle():
 	for piece in $ActivePieces.get_children():
-		if piece.linear_velocity.length() >= 0.77:
+		if !piece.sleeping:
 			return false
 	return true
 	
