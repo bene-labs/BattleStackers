@@ -25,7 +25,7 @@ func _on_PointArea_body_entered(body):
 		$AudioStreamPlayer2D.play()
 
 func _on_PointArea_body_exited(body):
-	if body.has_method("_on_pin_lost"):
+	if body in touching_pieces and body.has_method("_on_pin_lost"):
 		touching_pieces.erase(body)
 		body._on_pin_lost(self)
 		if touching_pieces.size() == 0:
