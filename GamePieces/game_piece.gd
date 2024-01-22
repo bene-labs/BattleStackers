@@ -5,10 +5,12 @@ signal picked_up(piece)
 signal idle
 signal dropped
 
+
+export var idle_requirement = 3.0
+
 var was_placed = false 
 var is_follow_mouse = false
 var is_hovered = false
-export var idle_requirement = 3.0
 
 var owning_player : Player
 
@@ -16,12 +18,9 @@ var owning_player : Player
 func init(player):
 	owning_player = player
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	mode = RigidBody2D.MODE_STATIC
 
-
-var held = false
 
 func _physics_process(delta):
 	if is_follow_mouse:

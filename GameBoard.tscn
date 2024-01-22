@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Pins/BasePin.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GameBoard.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://GamePieces/TriangleRotatedPiece.tscn" type="PackedScene" id=10]
 [ext_resource path="res://GamePieces/CirclePiece.tscn" type="PackedScene" id=11]
 [ext_resource path="res://GamePieces/DiamondPiece.tscn" type="PackedScene" id=12]
+[ext_resource path="res://sounds/zapsplat_impact_wood_large_hollow_tree_trunk_hit_thud_001_104353.mp3" type="AudioStream" id=13]
 [ext_resource path="res://GamePieces/OrigamiPiece.tscn" type="PackedScene" id=14]
 [ext_resource path="res://GamePieces/LongBoyLeft.tscn" type="PackedScene" id=15]
 
@@ -214,6 +215,9 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeleteArea"]
 position = Vector2( -511, 1021 )
 shape = SubResource( 1 )
+
+[node name="DropSound" type="AudioStreamPlayer2D" parent="DeleteArea"]
+stream = ExtResource( 13 )
 
 [connection signal="body_entered" from="Line" to="." method="_on_Line_body_entered"]
 [connection signal="body_entered" from="DeleteArea" to="." method="_on_DeleteArea_body_entered"]

@@ -28,4 +28,5 @@ func is_idle():
 
 func _on_DeleteArea_body_entered(body):
 	if body is GamePiece:
+		$DeleteArea/DropSound.play()
 		body.queue_free()

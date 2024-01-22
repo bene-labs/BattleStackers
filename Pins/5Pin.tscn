@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Elements/Final elements/Pin.png" type="Texture" id=1]
 [ext_resource path="res://Pins/pin.gd" type="Script" id=2]
-[ext_resource path="res://zapsplat_leisure_rubber_ball_heavy_bounce_wood_22102.mp3" type="AudioStream" id=3]
+[ext_resource path="res://sounds/zapsplat_leisure_rubber_ball_heavy_bounce_wood_22102.mp3" type="AudioStream" id=3]
 
 [sub_resource type="PhysicsMaterial" id=3]
 rough = true

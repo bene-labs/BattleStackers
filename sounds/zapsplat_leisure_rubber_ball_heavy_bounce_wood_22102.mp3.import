@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/zapsplat_leisure_rubber_ball_heavy_bounce_wood_22102.mp3-a67613940713fdf99a47b9d110531d1e.mp3str"
+
+[deps]
+
+source_file="res://sounds/zapsplat_leisure_rubber_ball_heavy_bounce_wood_22102.mp3"
+dest_files=[ "res://.import/zapsplat_leisure_rubber_ball_heavy_bounce_wood_22102.mp3-a67613940713fdf99a47b9d110531d1e.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
