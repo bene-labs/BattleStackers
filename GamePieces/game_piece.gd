@@ -20,6 +20,7 @@ func init(player):
 
 func _ready():
 	mode = RigidBody2D.MODE_STATIC
+	
 
 
 func _physics_process(delta):
@@ -68,3 +69,11 @@ func _on_pin_touched(pin):
 
 func _on_pin_lost(pin):
 	owning_player.lose_points(pin.points)
+
+
+func _on_MouseArea_body_entered(body):
+	if body.get_class() != get_class() or body == self:
+		return
+	$HitSound.pitch_scale = rand_range(0.5, 1.5)
+	$HitSound.play()
+	print("Bonk!")
