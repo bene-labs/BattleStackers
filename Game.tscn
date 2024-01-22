@@ -28,7 +28,7 @@ position = Vector2( 687, 6 )
 z_index = -1
 
 [node name="MaxTurnTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 15.0
 one_shot = true
 
 [node name="SkipButton" type="Button" parent="."]

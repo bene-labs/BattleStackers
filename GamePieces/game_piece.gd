@@ -11,6 +11,7 @@ export var idle_requirement = 3.0
 var was_placed = false 
 var is_follow_mouse = false
 var is_hovered = false
+var is_touched = false
 
 var owning_player : Player
 
@@ -30,6 +31,16 @@ func _physics_process(delta):
 func _input(event):
 	if was_placed:
 		return
+	
+	# Mobile
+	if event is InputEventScreenDrag:
+		global_transform.origin = event.position
+		is_touched = true
+	if is_touched and event is InputEventScreenTouch and not event.pressed:
+		is_touched = false
+		drop()
+	
+	# PC / Mac
 	if is_hovered and event.is_action_pressed("pickup_piece"):
 		emit_signal("picked_up", self)
 		is_follow_mouse = true
