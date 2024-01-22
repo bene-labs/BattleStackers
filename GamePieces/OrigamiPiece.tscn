@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://GamePieces/game_piece.gd" type="Script" id=1]
+[ext_resource path="res://Elements/86_white wood grain texture-seamless.jpg" type="Texture" id=2]
 
 [node name="OrigamiPiece" type="RigidBody2D"]
 collision_layer = 3
@@ -8,6 +9,7 @@ collision_mask = 3
 script = ExtResource( 1 )
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+texture = ExtResource( 2 )
 polygon = PoolVector2Array( -37.5, -25, -18.75, 0, 0, -25, 37.5, -25, 37.5, 25, 18.75, 0, 0, 25, -37.5, 25 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://GamePieces/game_piece.gd" type="Script" id=1]
+[ext_resource path="res://Elements/86_white wood grain texture-seamless.jpg" type="Texture" id=2]
 
 [node name="DiamondPiece" type="RigidBody2D"]
 rotation = 0.78914
@@ -9,6 +10,7 @@ collision_mask = 3
 script = ExtResource( 1 )
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+texture = ExtResource( 2 )
 polygon = PoolVector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
@@ -17,6 +19,7 @@ polygon = PoolVector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
 [node name="MouseArea" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MouseArea"]
+visible = false
 polygon = PoolVector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
 
 [node name="IdleTimer" type="Timer" parent="."]
