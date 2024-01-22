@@ -25,6 +25,7 @@ func start_next_turn():
 	$GameBoard.pass_turn(players[(turn - 1) % players.size()])
 	$SkipButton.hide()
 	yield($GameBoard, "piece_dropped")
+	yield(get_tree().create_timer(0.2), "timeout")
 	$MaxTurnTimer.start()
 	while !$GameBoard.is_idle() and !skip_turn:
 		yield(get_tree().create_timer(0.2), "timeout")

@@ -18,7 +18,7 @@ func init(player):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	mode = 1
+	mode = RigidBody2D.MODE_STATIC
 
 
 var held = false
@@ -26,14 +26,14 @@ var held = false
 func _physics_process(delta):
 	if is_follow_mouse:
 		global_transform.origin = get_global_mouse_position()
-		return
+
 
 func _input(event):
 	if was_placed:
 		return
 	if is_hovered and event.is_action_pressed("pickup_piece"):
 		emit_signal("picked_up", self)
-		mode = 0
+		
 		is_follow_mouse = true
 	if is_follow_mouse and event.is_action_released("pickup_piece"):
 		drop()
@@ -43,6 +43,7 @@ func drop():
 		return
 	is_follow_mouse = false
 	was_placed = true
+	mode = RigidBody2D.MODE_RIGID
 	apply_central_impulse(Input.get_last_mouse_speed())
 	emit_signal("dropped")
 
