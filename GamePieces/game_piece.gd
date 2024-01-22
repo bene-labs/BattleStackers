@@ -72,7 +72,10 @@ func _on_pin_lost(pin):
 
 
 func _on_MouseArea_body_entered(body):
-	if body.get_class() != get_class() or body == self:
+	if linear_velocity.length() < 0.75:
+		return
+	
+	if (body.get_class() != get_class() or body == self) and not body is Wall:
 		return
 	$HitSound.pitch_scale = rand_range(0.5, 1.5)
 	$HitSound.play()

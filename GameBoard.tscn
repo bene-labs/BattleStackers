@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Pins/BasePin.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GameBoard.gd" type="Script" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://sounds/zapsplat_impact_wood_large_hollow_tree_trunk_hit_thud_001_104353.mp3" type="AudioStream" id=13]
 [ext_resource path="res://GamePieces/OrigamiPiece.tscn" type="PackedScene" id=14]
 [ext_resource path="res://GamePieces/LongBoyLeft.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Wall.gd" type="Script" id=16]
 
 [sub_resource type="PhysicsMaterial" id=2]
 friction = 0.56
@@ -170,6 +171,7 @@ polygon = PoolVector2Array( 1, 116, 898, 114, 898, 136, 0, 135 )
 [node name="Wall" type="StaticBody2D" parent="."]
 position = Vector2( -31, 1 )
 physics_material_override = SubResource( 2 )
+script = ExtResource( 16 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall"]
 polygon = PoolVector2Array( -64, 3, 32, 2, 32, 882, -66, 883 )
@@ -178,6 +180,7 @@ polygon = PoolVector2Array( -64, 3, 32, 2, 32, 882, -66, 883 )
 position = Vector2( 476, -280 )
 rotation = -1.57512
 physics_material_override = SubResource( 2 )
+script = ExtResource( 16 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall3"]
 position = Vector2( -190.641, -467.067 )
@@ -187,6 +190,7 @@ polygon = PoolVector2Array( -39.1402, -17.1261, 35.1747, -16.4344, 30.5584, 894.
 [node name="Wall2" type="StaticBody2D" parent="."]
 position = Vector2( 934, -2 )
 physics_material_override = SubResource( 2 )
+script = ExtResource( 16 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Wall2"]
 polygon = PoolVector2Array( -34, 0, 78, 0, 80, 880, -35, 880 )
