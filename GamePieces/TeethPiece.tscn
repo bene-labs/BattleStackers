@@ -14,13 +14,11 @@ texture = ExtResource( 2 )
 polygon = PoolVector2Array( -25, 0, 0, -25, 25, 0, 25, 0 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
 polygon = PoolVector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
 
 [node name="MouseArea" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MouseArea"]
-visible = false
 polygon = PoolVector2Array( -25, -25, 25, -25, 25, 25, -25, 25 )
 
 [node name="IdleTimer" type="Timer" parent="."]

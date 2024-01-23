@@ -8,10 +8,12 @@ signal dropped
 
 export var idle_requirement = 3.0
 
-var was_placed = false 
+var was_placed = false
 var is_follow_mouse = false
 var is_hovered = false
 var is_touched = false
+var last_touch_position = Vector2.ZERO
+var last_touch_drag_velocity = Vector2.ZERO
 
 var owning_player : Player
 
@@ -26,7 +28,8 @@ func _ready():
 func _physics_process(delta):
 	if is_follow_mouse:
 		global_transform.origin = get_global_mouse_position()
-
+	if is_touched:
+		global_transform.origin = last_touch_position
 
 func _input(event):
 	if was_placed:
@@ -34,13 +37,19 @@ func _input(event):
 	
 	# Mobile
 	if event is InputEventScreenDrag:
-		global_transform.origin = event.position
-		is_touched = true
-	if is_touched and event is InputEventScreenTouch and not event.pressed:
-		is_touched = false
-		drop()
-	
-	# PC / Mac
+		if not is_touched and Geometry.is_point_in_polygon(to_local(event.position), $MouseArea/CollisionPolygon2D.polygon):
+			mode = RigidBody2D.MODE_RIGID
+			is_touched = true
+			emit_signal("picked_up", self)
+		elif not is_touched:
+			return
+		last_touch_drag_velocity = event.speed
+		linear_velocity = Vector2.ZERO
+		last_touch_position = event.position
+	if is_touched and event is InputEventScreenTouch:
+		if not event.pressed:
+			drop()
+#	# PC
 	if is_hovered and event.is_action_pressed("pickup_piece"):
 		emit_signal("picked_up", self)
 		is_follow_mouse = true
@@ -49,14 +58,15 @@ func _input(event):
 		drop()
 
 func drop():
-	if not is_follow_mouse:
+	if not is_follow_mouse and not is_touched:
 		return
 	#$MouseArea.monitoring = false
+	is_touched = false
 	is_hovered = false
 	is_follow_mouse = false
 	was_placed = true
 	linear_velocity = Vector2.ZERO
-	apply_central_impulse(Input.get_last_mouse_speed())
+	apply_central_impulse(Input.get_last_mouse_speed() if last_touch_drag_velocity == Vector2.ZERO else last_touch_drag_velocity)
 	emit_signal("dropped")
 
 func _on_mouse_entered():

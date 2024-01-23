@@ -22,8 +22,8 @@ shape = SubResource( 1 )
 
 [node name="MouseArea" type="Area2D" parent="."]
 
-[node name="CollisionPolygon2D2" type="CollisionShape2D" parent="MouseArea"]
-shape = SubResource( 1 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="MouseArea"]
+polygon = PoolVector2Array( 0, -26, 2, -26, 5, -25, 14, -22, 19, -18, 23, -12, 26, -1, 27, 4, 26, 8, 22, 15, 15, 22, 7, 26, -1, 27, -8, 26, -16, 21, -23, 12, -26, 4, -26, -3, -25, -11, -21, -18, -16, -22, -9, -25, -3, -26 )
 
 [node name="IdleTimer" type="Timer" parent="."]
 
