@@ -24,7 +24,7 @@ func lose_points(amount):
 func set_nb(nb):
 	$Title.text = $Title.text % nb
 	if nb > 1:
-		color = Color.aquamarine
+		color = Color.cyan
 	$TurnLabel.modulate = color
 	$Title.modulate = color
 

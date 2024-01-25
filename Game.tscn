@@ -28,7 +28,7 @@ position = Vector2( 687, 6 )
 z_index = -1
 
 [node name="MaxTurnTimer" type="Timer" parent="."]
-wait_time = 15.0
+wait_time = 12.0
 one_shot = true
 
 [node name="SkipButton" type="Button" parent="."]
@@ -48,12 +48,13 @@ margin_bottom = 458.0
 color = Color( 0.301961, 0.278431, 0.278431, 0.87451 )
 
 [node name="Label" type="Label" parent="WinPopup"]
-margin_left = 73.0
 margin_top = 10.0
-margin_right = 552.0
+margin_right = 624.0
 margin_bottom = 83.0
 custom_fonts/font = SubResource( 1 )
 text = "Player %d wins!"
+align = 1
+valign = 1
 
 [node name="RestartButton" type="Button" parent="WinPopup"]
 margin_left = 137.0
@@ -61,7 +62,7 @@ margin_top = 125.0
 margin_right = 477.0
 margin_bottom = 182.0
 custom_fonts/font = SubResource( 2 )
-text = "Again!"
+text = "Play Again"
 
 [connection signal="timeout" from="MaxTurnTimer" to="." method="_on_MaxTurnTimer_timeout"]
 [connection signal="button_down" from="SkipButton" to="." method="_on_SkipButton_button_down"]

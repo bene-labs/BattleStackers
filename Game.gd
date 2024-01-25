@@ -6,7 +6,7 @@ var turn = 0
 var players
 
 var skip_turn = false
-
+var is_piece_falling = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,11 +28,21 @@ func loop():
 	start_next_turn()
 
 
+func _input(event):
+	if !is_piece_falling:
+		return
+	if event.is_action_pressed("pickup_piece") or \
+			(event is InputEventScreenTouch and event.pressed):
+		$SkipButton.show()
+
+
 func start_next_turn():
 	turn += 1
+	is_piece_falling = false
 	$GameBoard.pass_turn(players[(turn - 1) % players.size()])
 	$SkipButton.hide()
 	yield($GameBoard, "piece_dropped")
+	is_piece_falling = true
 	yield(get_tree().create_timer(0.2), "timeout")
 	$MaxTurnTimer.start()
 	while !$GameBoard.is_idle() and !skip_turn:
